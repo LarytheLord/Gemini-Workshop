@@ -1,0 +1,14 @@
+{
+  "name": "gemini-ultra-starter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "web": "node index.mjs --server",
+    "cli": "node index.mjs"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.16.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
