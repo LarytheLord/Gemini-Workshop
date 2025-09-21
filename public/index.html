@@ -7,7 +7,9 @@
 <label>Task</label><input id="task" placeholder="make 5 flashcards as JSON">
 <label>Input</label><textarea id="input" rows="6" placeholder="paste text..."></textarea>
 <button id="go">Run</button>
-<pre id="out"></pre>
+<label for="output">Output:</label>
+<textarea id="out" rows="4" style="width: 60%; resize: vertical;" readonly>
+</textarea>
 <script type="module">
 const $=q=>document.querySelector(q);$('#go').onclick=async()=>{
   const r=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},
