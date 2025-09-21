@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemini Ultra Starter</title>
+<style>body{font-family:system-ui;margin:40px;max-width:760px}textarea,input{width:100%;padding:10px;margin:8px 0}button{padding:8px 14px}</style>
+</head><body>
+<h2>Gemini Ultra Starter — Web Demo</h2>
+<p>Type a task and some text, then submit. This calls <code>/api/ai</code>.</p>
+<label>Task</label><input id="task" placeholder="make 5 flashcards as JSON">
+<label>Input</label><textarea id="input" rows="6" placeholder="paste text..."></textarea>
+<button id="go">Run</button>
+<pre id="out"></pre>
+<script type="module">
+const $=q=>document.querySelector(q);$('#go').onclick=async()=>{
+  const r=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({task:$('#task').value,input:$('#input').value})})
+  const j=await r.json(); $('#out').textContent=(j.output||j.error||'no output');
+}
+</script>
+</body></html>
